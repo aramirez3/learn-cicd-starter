@@ -46,10 +46,11 @@ jobs:
   security:
     name: security
     runs-on: ubuntu-latest
+    env:
+      GO111MODULE: on
 
     steps:
-      - name: Install gosec
-        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
-
-      - name: Run gosec
-        run: gosec ./...
+    - name: Run gosec
+      uses: securego/gosec@master
+      with:
+         args: ./...

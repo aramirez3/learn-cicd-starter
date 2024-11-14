@@ -2,7 +2,7 @@ name: Build
 
 on:
     push:
-        branches: [setup-cd]
+        branches: [main]
 
 jobs:
   job_id:

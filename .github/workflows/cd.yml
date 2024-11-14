@@ -31,3 +31,6 @@ jobs:
         
             - name: 'Deploy to Google Artifact Registry'
               run: 'gcloud builds submit --tag ${{ vars.GAR_URL }}/notely:latest .'
+
+            - name: Deploy to Cloud run
+              run: 'gcloud run deploy notely --image ${{ vars.GAR_URL }}/notely:latest --region ${{ vars.REGION }} --allow-unauthenticated --project ${{ vars.PROJECTID }} --max-instances=4'
